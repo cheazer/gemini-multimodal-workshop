@@ -4,6 +4,9 @@
 const $ = (id) => document.getElementById(id);
 
 export const els = {
+  stepKey: $("stepKey"),
+  stepImg: $("stepImg"),
+  stepAsk: $("stepAsk"),
   keyInput: $("keyInput"),
   keySave: $("keySave"),
   keyStatus: $("keyStatus"),
@@ -40,8 +43,14 @@ export function getApiKey() {
 
 function refreshKeyStatus() {
   const key = getApiKey();
-  els.keyStatus.textContent = key ? `key saved (…${key.slice(-4)})` : "no key yet";
+  els.keyStatus.textContent = key ? `✓ key saved (…${key.slice(-4)})` : "no key yet";
   els.keyStatus.dataset.ok = key ? "1" : "";
+  markStep("stepKey", !!key);
+}
+
+// ticks off the 1-2-3 progress bar at the top of the page
+export function markStep(id, done = true) {
+  els[id]?.classList.toggle("done", done);
 }
 
 els.keySave.addEventListener("click", () => {
@@ -85,7 +94,7 @@ async function prepareImage(file) {
   }
 }
 
-async function useFile(file) {
+export async function useFile(file) {
   if (!file || !(file.type.startsWith("image/") || /\.(heic|heif)$/i.test(file.name))) return;
   els.dropText.textContent = "Loading image…";
   const img = await prepareImage(file);
@@ -98,6 +107,15 @@ async function useFile(file) {
     els.dropText.textContent = `${file.name} ready (no preview for this format)`;
   }
   els.clearImg.hidden = false;
+  markStep("stepImg");
+}
+
+// loads one of the sample pictures in public/samples/
+export async function useSample(name) {
+  const file = name === "chart" ? "chart.png" : "receipt.jpg";
+  const res = await fetch(`./samples/${file}`);
+  const blob = await res.blob();
+  await useFile(new File([blob], file, { type: blob.type }));
 }
 
 function clearImage() {
@@ -106,8 +124,9 @@ function clearImage() {
   els.preview.hidden = true;
   els.preview.removeAttribute("src");
   els.dropText.hidden = false;
-  els.dropText.textContent = "Click, drop, or paste an image here (optional)";
+  els.dropText.textContent = "Click to choose a photo, drag one in, or paste a screenshot";
   els.clearImg.hidden = true;
+  markStep("stepImg", false);
 }
 
 els.file.addEventListener("change", (e) => useFile(e.target.files[0]));

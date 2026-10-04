@@ -3,7 +3,7 @@
 
 import { askStream, askJson, buildContents } from "./gemini.js";
 import { PRESETS } from "./presets.js";
-import { els, getApiKey, getImage, setOutput, appendOutput, setBusy, showError } from "./ui.js";
+import { els, getApiKey, getImage, setOutput, appendOutput, setBusy, showError, markStep, useSample } from "./ui.js";
 
 // fill the preset dropdown
 PRESETS.forEach((p, i) => els.preset.add(new Option(p.name, String(i))));
@@ -15,6 +15,22 @@ function applyPreset() {
 }
 els.preset.addEventListener("change", applyPreset);
 applyPreset();
+
+// sample pictures: load the image and switch to an app that suits it
+const SAMPLE_SETUP = {
+  receipt: { preset: "Receipt scanner" },
+  chart: { preset: "Describe anything", question: "What does this chart show? What's the main trend?" },
+};
+document.querySelectorAll("[data-sample]").forEach((btn) =>
+  btn.addEventListener("click", async () => {
+    const name = btn.dataset.sample;
+    const setup = SAMPLE_SETUP[name];
+    const i = PRESETS.findIndex((p) => p.name === setup.preset);
+    if (i >= 0) { els.preset.value = String(i); applyPreset(); }
+    if (setup.question) els.prompt.value = setup.question;
+    await useSample(name);
+  })
+);
 
 function requestBase() {
   const apiKey = getApiKey();
@@ -40,6 +56,7 @@ els.askBtn.addEventListener("click", async () => {
         appendOutput(text);
       },
     });
+    markStep("stepAsk");
   } catch (err) {
     showError(err);
   } finally {
@@ -54,6 +71,7 @@ els.jsonBtn.addEventListener("click", async () => {
     const preset = PRESETS[Number(els.preset.value)] || PRESETS[0];
     const data = await askJson({ ...requestBase(), schema: preset.schema });
     setOutput(JSON.stringify(data, null, 2));
+    markStep("stepAsk");
   } catch (err) {
     showError(err);
   } finally {

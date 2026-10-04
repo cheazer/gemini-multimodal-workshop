@@ -13,58 +13,75 @@
         <p class="sub">Show Gemini a picture, ask it anything.</p>
       </header>
 
+      <ol class="progress" aria-label="Your progress">
+        <li id="stepKey"><span class="tick">1</span> Save your key</li>
+        <li id="stepImg"><span class="tick">2</span> Add a picture</li>
+        <li id="stepAsk"><span class="tick">3</span> Ask Gemini</li>
+      </ol>
+
       <section class="card">
         <div class="row">
-          <label for="keyInput" class="label">Gemini API key</label>
+          <label for="keyInput" class="label">1. Your Gemini API key</label>
           <span id="keyStatus" class="status"></span>
         </div>
         <div class="inline">
-          <input id="keyInput" type="password" placeholder="Paste your key from aistudio.google.com/apikey" autocomplete="off" />
+          <input id="keyInput" type="password" placeholder="Paste your key here" autocomplete="off" />
           <button id="keySave" class="secondary">Save</button>
         </div>
-        <p class="hint">Saved only in this browser. Don't share it or put it in your code.</p>
+        <p class="hint">
+          A key is like a password that lets this app use Gemini. Get one free at
+          <a href="https://aistudio.google.com/apikey" target="_blank" rel="noopener">aistudio.google.com/apikey</a>.
+          It's saved only in this browser.
+        </p>
       </section>
 
       <section class="card">
-        <div class="grid2">
-          <div>
-            <label for="preset" class="label">App</label>
-            <select id="preset"></select>
-          </div>
-          <div>
-            <label for="model" class="label">Model</label>
-            <select id="model">
-              <option value="gemini-3.8-flash">Gemini 3.8 Flash</option>
-              <option value="gemini-3.5-flash-lite">Gemini 3.5 Flash-Lite (faster, use if rate limited)</option>
-            </select>
-          </div>
-        </div>
-
-        <label for="system" class="label">System instruction (its personality and rules)</label>
-        <textarea id="system" rows="2"></textarea>
-      </section>
-
-      <section class="card">
+        <label class="label">2. Add a picture <span class="optional">(optional)</span></label>
         <label class="drop" id="drop">
           <input type="file" id="file" accept="image/*,.heic,.heif" hidden />
           <img id="preview" alt="Your chosen image" hidden />
-          <span id="dropText">Click, drop, or paste an image here (optional)</span>
+          <span id="dropText">Click to choose a photo, drag one in, or paste a screenshot</span>
         </label>
-        <button id="clearImg" class="link" hidden>Remove image</button>
+        <button id="clearImg" class="link" hidden>Remove picture</button>
+        <div class="samples">
+          <span class="hint">No photo handy? Try one:</span>
+          <button class="chip" data-sample="receipt">🧾 Receipt</button>
+          <button class="chip" data-sample="chart">📊 Chart</button>
+        </div>
+      </section>
 
-        <label for="prompt" class="label">Your question</label>
+      <section class="card">
+        <label for="preset" class="label">3. Choose what kind of app it is</label>
+        <select id="preset"></select>
+        <p class="hint">Each one is the same code with different instructions. You'll make your own later in <code>src/presets.js</code>.</p>
+
+        <label for="prompt" class="label spaced">Your question</label>
         <textarea id="prompt" rows="2"></textarea>
 
         <div class="buttons">
           <button id="askBtn">Ask Gemini</button>
           <button id="jsonBtn" class="secondary">Get structured JSON</button>
         </div>
+        <p class="hint"><b>Ask Gemini</b> gives a normal answer for people to read. <b>Get structured JSON</b> gives tidy data that code can use.</p>
       </section>
 
       <section class="card">
         <h2>Answer</h2>
-        <pre id="output">Nothing yet.</pre>
+        <pre id="output">Your answer will show up here.</pre>
       </section>
+
+      <details class="card advanced">
+        <summary>Advanced settings</summary>
+        <label for="system" class="label spaced">System instruction</label>
+        <textarea id="system" rows="3"></textarea>
+        <p class="hint">Tells Gemini who to be and how to answer. Try "Answer like a pirate" and ask again.</p>
+
+        <label for="model" class="label spaced">Model</label>
+        <select id="model">
+          <option value="gemini-3.8-flash">Gemini 3.8 Flash (default)</option>
+          <option value="gemini-3.5-flash-lite">Gemini 3.5 Flash-Lite (faster, use if you see "rate limit")</option>
+        </select>
+      </details>
 
       <footer>Built at GDG on Campus University of Aberdeen · Gemini API + Google Gen AI SDK</footer>
     </main>

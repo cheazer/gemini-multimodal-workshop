@@ -82,3 +82,30 @@ button.link {
   background: none; border: none; color: var(--accent); padding: 0; margin: -4px 0 12px; font-size: 14px;
 }
 footer { margin-top: 24px; font-size: 12px; color: var(--muted); text-align: center; }
+
+/* beginner-friendly extras */
+a { color: var(--accent); }
+code { font: 13px ui-monospace, Menlo, Consolas, monospace; background: var(--bg); padding: 1px 5px; border-radius: 4px; }
+.optional { font-weight: 400; }
+.spaced { margin-top: 14px; }
+.progress {
+  list-style: none; padding: 0; margin: 0 0 16px; display: flex; gap: 8px; flex-wrap: wrap;
+}
+.progress li {
+  flex: 1 1 140px; display: flex; align-items: center; gap: 8px;
+  padding: 8px 12px; border: 1px solid var(--line); border-radius: 999px;
+  font-size: 14px; color: var(--muted); background: var(--card);
+}
+.progress .tick {
+  display: inline-grid; place-items: center; width: 22px; height: 22px; border-radius: 50%;
+  border: 1px solid var(--line); font-size: 12px; font-weight: 700;
+}
+.progress li.done { color: var(--text); border-color: #188038; }
+.progress li.done .tick { background: #188038; border-color: #188038; color: #fff; }
+.samples { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.samples .hint { margin: 0; }
+button.chip { padding: 6px 12px; border-radius: 999px; background: transparent; color: var(--text); border: 1px solid var(--line); font-size: 14px; }
+button.chip:hover { border-color: var(--accent); }
+.advanced summary { cursor: pointer; font-weight: 600; color: var(--muted); }
+.advanced[open] summary { margin-bottom: 4px; }
+select { margin-bottom: 0; }
