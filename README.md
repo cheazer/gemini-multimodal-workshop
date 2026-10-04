@@ -2,6 +2,8 @@
 
 GDG on Campus University of Aberdeen workshop.
 
+> **At the workshop? Follow [WORKSHOP.md](WORKSHOP.md)**. It's the step-by-step guide in plain English, with checkpoints.
+
 A web app where you show Gemini a picture, ask it a question, and get an answer back, either as normal text or as clean JSON your code can use. It works straight after you clone it, and by the end you'll have changed it into your own app.
 
 **Free.** You only need a Google account. No card, no billing.
@@ -38,8 +40,9 @@ The key is saved in your browser only. It is not in the code, so it's safe to pu
 
 ## Use it
 
-- pick an **App** from the dropdown (Fridge chef, Receipt scanner, Alt text writer…)
-- add a photo: click the box, drag one in, or paste a screenshot with Ctrl+V / Cmd+V
+- no photo handy? click **🧾 Receipt** or **📊 Chart** to load a sample
+- or add your own: click the box, drag one in, or paste a screenshot with Ctrl+V / Cmd+V
+- pick what kind of app it is from the list (Fridge chef, Receipt scanner, Alt text writer…)
 - press **Ask Gemini** for a normal answer, or **Get structured JSON** for data
 
 ## How it works
@@ -66,9 +69,11 @@ Save, and the page reloads with your new app. Ideas: plant identifier, outfit ra
 
 ## Put it online (optional, free)
 
+Full beginner steps are in [WORKSHOP.md, Part 5](WORKSHOP.md#part-5-put-it-online-bonus-10-mins). Short version:
+
 1. Create a new **public** repo on GitHub and push this code to it
 2. In the repo go to **Settings > Pages**, set **Source** to **GitHub Actions**
-3. Push again (or go to **Actions** and run "Deploy to GitHub Pages")
+3. Go to **Actions** and re-run "Deploy to GitHub Pages" if the first run failed
 4. Your app is live at `https://YOUR-USERNAME.github.io/REPO-NAME/`
 
 Anyone who opens it pastes their own key, so yours is never exposed.
