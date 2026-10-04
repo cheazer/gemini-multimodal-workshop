@@ -3,6 +3,8 @@
   "version": "1.0.0",
   "description": "GDG on Campus Aberdeen: build a multimodal web app with the Gemini API",
   "scripts": {
+    "preinstall": "node scripts/check-node.js",
+    "predev": "node scripts/check-node.js",
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview"
@@ -15,5 +17,8 @@
     "vite": "^8.3.2"
   },
   "type": "module",
-  "private": true
+  "private": true,
+  "engines": {
+    "node": "^20.19.0 || >=22.12.0"
+  }
 }

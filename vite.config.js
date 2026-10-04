@@ -1,13 +1,7 @@
 import { defineConfig } from "vite";
-import { resolve } from "node:path";
 
 export default defineConfig({
-  build: {
-    rollupOptions: {
-      input: {
-        main: resolve(__dirname, "index.html"),
-        solution: resolve(__dirname, "solution.html"),
-      },
-    },
-  },
+  // relative paths so the built app works on GitHub Pages under /your-repo-name/
+  base: "./",
+  server: { open: true },
 });
