@@ -15,6 +15,15 @@ That breaks into 4 outcomes, in order of priority:
 
 If someone only hits 1 and 2, that still counts. Never let anyone leave with a broken app. The code works out of the box, so worst case they still have the original working.
 
+## Keeping it beginner friendly
+
+- attendees follow **WORKSHOP.md** on their own screen. it has 5 parts, each ending in a ✅ checkpoint. call the checkpoint out loud before moving on: "hands up if all three steps at the top of your page are green"
+- anyone behind just skips to the next checkpoint. nothing they do can break the parts that come after
+- **no photo, no problem**: the 🧾 Receipt and 📊 Chart buttons load sample pictures and switch to a matching app
+- the page itself explains each control in one plain line, and the tricky bits (system instruction, model) are tucked under Advanced settings
+- say the jargon once, in plain words, then use it. the glossary slide and the glossary in WORKSHOP.md use the same definitions
+- never say "it's easy" or "just". say "this bit trips people up, shout if it does"
+
 ## Must knows
 
 **The concepts**
@@ -76,7 +85,7 @@ If someone only hits 1 and 2, that still counts. Never let anyone leave with a b
 |---|---|---|
 | 0:00 | welcome, GDG intro, **live demo of the finished app** | everyone sees the destination |
 | 0:10 | **get it running**: clone, `npm install`, `npm run dev`, get key, paste, Save | outcome 1. helpers roam. stuck 5+ mins → StackBlitz |
-| 0:30 | everyone tries the presets with their own photos | first "it works" moment |
+| 0:30 | everyone tries the 🧾 Receipt sample, then their own photos (WORKSHOP.md part 2) | first "it works" moment, checkpoint 1 and 2 |
 | 0:40 | **read the code together**: open `src/gemini.js`, go step by step with the slides | outcome 2 |
 | 1:05 | break | |
 | 1:10 | **make it yours**: walk through adding one preset live, then they build their own | outcome 3 |
