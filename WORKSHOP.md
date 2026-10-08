@@ -32,7 +32,7 @@ You should see a number like `v22.12.0`. If you get an error or a number below 2
 ### 1.2 Download the app
 
 ```bash
-git clone https://github.com/YOUR-USERNAME/gemini-multimodal-workshop.git
+git clone https://github.com/cheazer/gemini-multimodal-workshop.git
 cd gemini-multimodal-workshop
 ```
 
@@ -64,7 +64,7 @@ Click **🧾 Receipt** under "No photo handy?", then press **Ask Gemini**.
 
 > ✅ **Checkpoint 1:** all three steps at the top of the page are green, and Gemini has told you what was bought on the receipt.
 
-Stuck for more than 5 minutes? Put your hand up, or use the no-install version: open `https://stackblitz.com/github/YOUR-USERNAME/gemini-multimodal-workshop` in Chrome or Edge.
+Stuck for more than 5 minutes? Put your hand up, or use the no-install version: open `https://stackblitz.com/github/cheazer/gemini-multimodal-workshop` in Chrome or Edge.
 
 ---
 

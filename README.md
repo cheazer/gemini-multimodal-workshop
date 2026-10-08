@@ -16,7 +16,7 @@ You need **Node.js 22 LTS** (or 20.19+). Check with `node -v`. Get it from [node
 These commands are the same on Windows (PowerShell or Command Prompt), macOS and Linux:
 
 ```bash
-git clone https://github.com/YOUR-USERNAME/gemini-multimodal-workshop.git
+git clone https://github.com/cheazer/gemini-multimodal-workshop.git
 cd gemini-multimodal-workshop
 npm install
 npm run dev
@@ -28,7 +28,7 @@ Your browser opens the app (if not, go to the `http://localhost:5173` link in th
 
 ## Option B: no install, runs in your browser
 
-Go to `https://stackblitz.com/github/YOUR-USERNAME/gemini-multimodal-workshop` and wait for it to start. Works on any laptop with Chrome or Edge, including school or locked-down machines.
+Go to `https://stackblitz.com/github/cheazer/gemini-multimodal-workshop` and wait for it to start. Works on any laptop with Chrome or Edge, including school or locked-down machines.
 
 ## Get your free API key (2 mins)
 
@@ -74,7 +74,7 @@ Full beginner steps are in [WORKSHOP.md, Part 5](WORKSHOP.md#part-5-put-it-onlin
 1. Create a new **public** repo on GitHub and push this code to it
 2. In the repo go to **Settings > Pages**, set **Source** to **GitHub Actions**
 3. Go to **Actions** and re-run "Deploy to GitHub Pages" if the first run failed
-4. Your app is live at `https://YOUR-USERNAME.github.io/REPO-NAME/`
+4. Your app is live at `https://cheazer.github.io/REPO-NAME/`
 
 Anyone who opens it pastes their own key, so yours is never exposed.
 

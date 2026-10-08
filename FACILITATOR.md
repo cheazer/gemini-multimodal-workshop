@@ -55,7 +55,7 @@ If someone only hits 1 and 2, that still counts. Never let anyone leave with a b
 - `npm install` and `npm run dev` stop with a clear message if Node is too old (needs 20.19+ or 22.12+, tell people to get 22 LTS)
 - no `.env` file to create, which was the biggest Windows trap (`.env.txt`)
 - iPhone HEIC photos: Safari and Mac show them, on Windows Chrome there's no preview but Gemini still reads them
-- **StackBlitz fallback** (`stackblitz.com/github/YOUR-USERNAME/REPO`) runs it in Chrome/Edge with nothing installed. use it for anyone stuck more than 5 minutes
+- **StackBlitz fallback** (`stackblitz.com/github/cheazer/REPO`) runs it in Chrome/Edge with nothing installed. use it for anyone stuck more than 5 minutes
 
 **Likely questions, short answers**
 - *is it really free?* yes, with rate limits. no card asked
@@ -69,7 +69,7 @@ If someone only hits 1 and 2, that still counts. Never let anyone leave with a b
 
 ## Before the day
 
-- [ ] create a **public** GitHub repo, push this, replace `YOUR-USERNAME` in the README (clone link and StackBlitz link)
+- [ ] create a **public** GitHub repo, push this, replace `cheazer` in the README (clone link and StackBlitz link)
 - [ ] make a QR code to the repo for the slides
 - [ ] do a full run **from a fresh clone on a Windows machine and a Mac** if you can borrow one. at minimum your own laptop, twice
 - [ ] open the StackBlitz link once yourself and check it boots and answers
